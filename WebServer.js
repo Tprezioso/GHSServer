@@ -22,6 +22,17 @@ server.listen(PORT, function() {
     var newBody = JSON.parse(body);
     console.log(newBody.status);
 
+    var firebase = require("firebase");
+    // Initialize Firebase
+    // TODO: Replace with your project's customized code snippet
+    var config = {
+      apiKey: "<AIzaSyAe1N8MZR33dAcqZSIZyWCkadCyEa6N8kY",
+      authDomain: "github-status-a8907.firebaseapp.com",
+      databaseURL: "https://github-status-a8907.firebaseio.com",
+      //storageBucket: "<BUCKET>.appspot.com",
+    };
+firebase.initializeApp(config);
+
     if (newBody.status == "minor" || newBody.status == 'major') {
       var FCM = require('fcm-push');
       var serverKey = 'AAAAFcNgblc:APA91bEvvv8BgmAZ8Gru9PBb9zILNbjo9po75IuLCQtvJXeIDobFeGzErrguiYaZznSWQ54wG_YCdhaP3o011wgRg9izTez-7tHcnc8T2vATo4eJFRJnNBSMgciZ01qlZOwLIj5LnGVt';
