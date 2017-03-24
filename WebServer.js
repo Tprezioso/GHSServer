@@ -32,6 +32,8 @@ server.listen(PORT, function() {
       //storageBucket: "<BUCKET>.appspot.com",
     };
 firebase.initializeApp(config);
+ var database = firebase.database();
+ console.log(database);
 
     if (newBody.status == "minor" || newBody.status == 'major') {
       var FCM = require('fcm-push');
