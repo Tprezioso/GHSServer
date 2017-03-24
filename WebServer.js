@@ -22,6 +22,7 @@ server.listen(PORT, function() {
     var newBody = JSON.parse(body);
     console.log(newBody.status);
 
+    // Database Initialize
     var firebase = require("firebase");
     // Initialize Firebase
     // TODO: Replace with your project's customized code snippet
@@ -33,7 +34,11 @@ server.listen(PORT, function() {
     };
 firebase.initializeApp(config);
  var database = firebase.database();
- console.log(database);
+
+ return firebase.database().ref('push-token').once('value').then(function(snapshot) {
+  var username = snapshot.val();
+  console.log(username);
+});
 
     if (newBody.status == "minor" || newBody.status == 'major') {
       var FCM = require('fcm-push');
