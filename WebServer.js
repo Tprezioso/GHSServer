@@ -32,12 +32,12 @@ server.listen(PORT, function() {
       databaseURL: "https://github-status-a8907.firebaseio.com",
       //storageBucket: "<BUCKET>.appspot.com",
     };
-    var arrayOfDeviceID = [];
+var arrayOfDeviceID = [];
 firebase.initializeApp(config);
 var database = firebase.database();
  return firebase.database().ref('push-token').once('value').then(function(snapshot) {
-  var username = snapshot.val();
-  arrayOfDeviceID = username;
+  var fbDatabase = snapshot.val();
+  arrayOfDeviceID = fbDatabase;
   console.log(arrayOfDeviceID.user_token);
   if (newBody.status == "good" || newBody.status == 'major') {
       var FCM = require('fcm-push');
