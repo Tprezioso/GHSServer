@@ -32,50 +32,51 @@ server.listen(PORT, function() {
       databaseURL: "https://github-status-a8907.firebaseio.com",
       //storageBucket: "<BUCKET>.appspot.com",
     };
+    var arrayOfDeviceID = [];
 firebase.initializeApp(config);
  var database = firebase.database();
 
  return firebase.database().ref('push-token').once('value').then(function(snapshot) {
   var username = snapshot.val();
-  console.log(username.user_token.Token);
-});
-
-    if (newBody.status == "minor" || newBody.status == 'major') {
+  arrayOfDeviceID = username;
+  console.log(arrayOfDeviceID.user_token);
+  if (newBody.status == "good" || newBody.status == 'major') {
       var FCM = require('fcm-push');
       var serverKey = 'AAAAFcNgblc:APA91bEvvv8BgmAZ8Gru9PBb9zILNbjo9po75IuLCQtvJXeIDobFeGzErrguiYaZznSWQ54wG_YCdhaP3o011wgRg9izTez-7tHcnc8T2vATo4eJFRJnNBSMgciZ01qlZOwLIj5LnGVt';
       var fcm = new FCM(serverKey);
       var message = {
-        // TODO : needs a for loop of device id
-        to: 'e-dt2khziqY:APA91bEOaqIuH2zHWuGreijaR6wJnbV0CWCLQmfpaDryUA9POJAnCOXlfTexf6_Rx2rgsMpUwKmNF84tOjsBvKT3SuB4EyDh8mvpCteqPxxk2Z-z0nI7S8PWEBR6Np_HcOy9oHB3jkiw', // required fill with device token or topics
-        // collapse_key: 'your_collapse_key',
-        // data: {
-        //     your_custom_data_key: 'your_custom_data_value'
-        // },
-        notification: {
-            title: 'Current Github Status',
-            body: newBody.status
-          }
-        };
+          to: arrayOfDeviceID.user_token.Token, // required fill with device token or topics
+          // collapse_key: 'your_collapse_key',
+          // data: {
+          //     your_custom_data_key: 'your_custom_data_value'
+          // },
+          notification: {
+              title: 'Current Github Status',
+              body: newBody.status
+            }
+          };
+        // }
 
-        // Commented out for different send of message
-        //callback style
-        // fcm.send(message, function(err, response){
-        //     if (err) {
-        //         console.log("Something has gone wrong!");
-        //     } else {
-        //         console.log("Successfully sent with response: ", response);
-        //     }
-        // });
+          // Commented out for different send of message
+          //callback style
+          // fcm.send(message, function(err, response){
+          //     if (err) {
+          //         console.log("Something has gone wrong!");
+          //     } else {
+          //         console.log("Successfully sent with response: ", response);
+          //     }
+          // });
 
-    // promise style
-      fcm.send(message)
-      .then(function(response){
-          console.log("Successfully sent with response: ", response);
-        })
-      .catch(function(err){
-          console.log("Something has gone wrong!");
-          console.error(err);
-        })
-    }
+      // promise style
+        fcm.send(message)
+        .then(function(response){
+            console.log("Successfully sent with response: ", response);
+          })
+        .catch(function(err){
+            console.log("Something has gone wrong!");
+            console.error(err);
+          })
+      }
+    });
   });
 });
