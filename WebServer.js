@@ -37,7 +37,7 @@ firebase.initializeApp(config);
 
  return firebase.database().ref('push-token').once('value').then(function(snapshot) {
   var username = snapshot.val();
-  console.log(username);
+  console.log(username.user_token.Token);
 });
 
     if (newBody.status == "minor" || newBody.status == 'major') {
