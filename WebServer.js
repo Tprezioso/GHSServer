@@ -56,7 +56,6 @@ var database = firebase.database();
             }
           };
         // }
-
           // Commented out for different send of message
           //callback style
           // fcm.send(message, function(err, response){
