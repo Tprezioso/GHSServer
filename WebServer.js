@@ -34,8 +34,7 @@ server.listen(PORT, function() {
     };
     var arrayOfDeviceID = [];
 firebase.initializeApp(config);
- var database = firebase.database();
-
+var database = firebase.database();
  return firebase.database().ref('push-token').once('value').then(function(snapshot) {
   var username = snapshot.val();
   arrayOfDeviceID = username;
