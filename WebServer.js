@@ -39,7 +39,7 @@ var database = firebase.database();
   var fbDatabase = snapshot.val();
   arrayOfDeviceID = fbDatabase;
   console.log(arrayOfDeviceID.user_token);
-  if (newBody.status == "good" || newBody.status == 'major') {
+  if (newBody.status == "minor" || newBody.status == 'major') {
       var FCM = require('fcm-push');
       var serverKey = 'AAAAFcNgblc:APA91bEvvv8BgmAZ8Gru9PBb9zILNbjo9po75IuLCQtvJXeIDobFeGzErrguiYaZznSWQ54wG_YCdhaP3o011wgRg9izTez-7tHcnc8T2vATo4eJFRJnNBSMgciZ01qlZOwLIj5LnGVt';
       var fcm = new FCM(serverKey);
