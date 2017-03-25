@@ -32,6 +32,7 @@ server.listen(PORT, function() {
       databaseURL: "https://github-status-a8907.firebaseio.com",
       //storageBucket: "<BUCKET>.appspot.com",
     };
+// Sending push notification w/ database
 var arrayOfDeviceID = [];
 firebase.initializeApp(config);
 var database = firebase.database();
