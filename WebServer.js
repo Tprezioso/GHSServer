@@ -25,7 +25,6 @@ server.listen(PORT, function() {
     // Database Initialize
     var firebase = require("firebase");
     // Initialize Firebase
-    // TODO: Replace with your project's customized code snippet
     var config = {
       apiKey: "<AIzaSyAe1N8MZR33dAcqZSIZyWCkadCyEa6N8kY",
       authDomain: "github-status-a8907.firebaseapp.com",
