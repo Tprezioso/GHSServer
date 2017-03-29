@@ -36,9 +36,6 @@ var arrayOfDeviceID = [];
 firebase.initializeApp(config);
 var database = firebase.database();
  return firebase.database().ref('push-token').once('value').then(function(snapshot) {
-  var fbDatabase = snapshot.val();
-  arrayOfDeviceID = fbDatabase;
-  console.log(arrayOfDeviceID.user_token);
 
   var countdown =  30 * 60 * 1000;
   var timerId = setInterval(function(){
@@ -49,6 +46,10 @@ var database = firebase.database();
 
     if (countdown <= 0) {
        //clearInterval(timerId);
+       var fbDatabase = snapshot.val();
+       arrayOfDeviceID = fbDatabase;
+       console.log(arrayOfDeviceID.user_token);
+
        if (newBody.status == "good" || newBody.status == 'major') {
            var FCM = require('fcm-push');
            var serverKey = 'AAAAFcNgblc:APA91bEvvv8BgmAZ8Gru9PBb9zILNbjo9po75IuLCQtvJXeIDobFeGzErrguiYaZznSWQ54wG_YCdhaP3o011wgRg9izTez-7tHcnc8T2vATo4eJFRJnNBSMgciZ01qlZOwLIj5LnGVt';
