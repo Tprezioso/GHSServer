@@ -41,7 +41,6 @@ var database = firebase.database();
   var timerId = setInterval(function(){
     countdown -= 1000;
     var min = Math.floor(countdown / (60 * 1000));
-    //var sec = Math.floor(countdown - (min * 60 * 1000));  // wrong
     var sec = Math.floor((countdown - (min * 60 * 1000)) / 1000);  //correct
 
     if (countdown <= 0) {
