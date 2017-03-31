@@ -44,7 +44,6 @@ var database = firebase.database();
     var sec = Math.floor((countdown - (min * 60 * 1000)) / 1000);  //correct
 
     if (countdown <= 0) {
-       //clearInterval(timerId);
        var fbDatabase = snapshot.val();
        arrayOfDeviceID = fbDatabase;
        console.log(arrayOfDeviceID.user_token);
