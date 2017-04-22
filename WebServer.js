@@ -73,7 +73,6 @@ var database = firebase.database();
                //         console.log("Successfully sent with response: ", response);
                //     }
                // });
-
            // promise style
              fcm.send(message)
              .then(function(response){
@@ -89,7 +88,6 @@ var database = firebase.database();
     } else {
       console.log(countdown);
     }
-
   }, 1000);
     });
   });
