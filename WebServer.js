@@ -63,16 +63,6 @@ var database = firebase.database();
                    body: newBody.status
                  }
                };
-             // }
-               // Commented out for different send of message
-               //callback style
-               // fcm.send(message, function(err, response){
-               //     if (err) {
-               //         console.log("Something has gone wrong!");
-               //     } else {
-               //         console.log("Successfully sent with response: ", response);
-               //     }
-               // });
            // promise style
              fcm.send(message)
              .then(function(response){
