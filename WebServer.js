@@ -37,11 +37,12 @@ firebase.initializeApp(config);
 var database = firebase.database();
  return firebase.database().ref('push-token').once('value').then(function(snapshot) {
 
-  var countdown =  30 * 60 * 1000;
+  var countdown =  30 ;//* 60 * 1000;
   var timerId = setInterval(function(){
     countdown -= 1000;
-    var min = Math.floor(countdown / (60 * 1000));
-    var sec = Math.floor((countdown - (min * 60 * 1000)) / 1000);  //correct
+    // uncomment 2 lines below when done with testing
+    // var min = Math.floor(countdown / (60 * 1000));
+    // var sec = Math.floor((countdown - (min * 60 * 1000)) / 1000);  //correct
 
     if (countdown <= 0) {
        var fbDatabase = snapshot.val();
@@ -74,11 +75,12 @@ var database = firebase.database();
                })
            }
            // 30 min count
-           countdown = 30 * 60 * 1000;
+           countdown = 30;// * 60 * 1000;
     } else {
       console.log(countdown);
     }
-  }, 1000);
+    // uncomment line below after testing
+  }, 10);//00);
     });
   });
 });
