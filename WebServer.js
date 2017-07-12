@@ -76,7 +76,7 @@ var database = firebase.database();
            }
            // 30 min count
            // uncomment line below after testing
-           countdown = 30;// * 60 * 1000;
+           countdown = 30 * 60;//  * 1000;
     } else {
       console.log(countdown);
     }
