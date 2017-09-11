@@ -26,9 +26,9 @@ server.listen(PORT, function() {
     var firebase = require("firebase");
     // Initialize Firebase
     var config = {
-      apiKey: "<AIzaSyAe1N8MZR33dAcqZSIZyWCkadCyEa6N8kY",
-      authDomain: "github-status-a8907.firebaseapp.com",
-      databaseURL: "https://github-status-a8907.firebaseio.com",
+      apiKey: "AIzaSyBkUebaHxBKiKozeip3KKJj9WDg3gWhztc",
+      authDomain: "gitstatuswebserver.firebaseapp.com",
+      databaseURL: "https://gitstatuswebserver.firebaseio.com",
       //storageBucket: "<BUCKET>.appspot.com",
     };
 // Sending push notification w/ database
