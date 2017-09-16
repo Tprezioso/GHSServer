@@ -41,8 +41,8 @@ var database = firebase.database();
   var timerId = setInterval(function(){
     countdown -= 1000;
     // uncomment 2 lines below when done with testing
-    // var min = Math.floor(countdown / (60 * 1000));
-    // var sec = Math.floor((countdown - (min * 60 * 1000)) / 1000);  //correct
+    var min = Math.floor(countdown / (60 * 1000));
+    var sec = Math.floor((countdown - (min * 60 * 1000)) / 1000);  //correct
 
     if (countdown <= 0) {
        var fbDatabase = snapshot.val();
