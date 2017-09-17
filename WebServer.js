@@ -37,7 +37,7 @@ firebase.initializeApp(config);
 var database = firebase.database();
  return firebase.database().ref('push-token').once('value').then(function(snapshot) {
 
-  var countdown =  30 ;//* 60 * 1000;
+  var countdown =  30 * 60 * 1000;
   var timerId = setInterval(function(){
     countdown -= 1000;
     // uncomment 2 lines below when done with testing
